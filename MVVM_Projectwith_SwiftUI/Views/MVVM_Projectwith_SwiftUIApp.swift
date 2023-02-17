@@ -15,6 +15,7 @@ struct MVVM_Projectwith_SwiftUIApp: App {
 			ZStack {
 				if productsViewModel.showLoader {
 					ProgressView()
+                        .scaleEffect(2)
 				} else {
 					TabsView(productsViewModel: productsViewModel)
 				}

@@ -17,6 +17,7 @@ class ProductItemViewModel: ObservableObject {
 		self.delegateFavouriteManager = delegateFavouriteManager
 	}
 	
+        // MARK: - func toggle for Favorite
 	func toggleFavorite() {
 		guard let id = product.id else {return}
 		delegateFavouriteManager?.updateFavourite(with: id)

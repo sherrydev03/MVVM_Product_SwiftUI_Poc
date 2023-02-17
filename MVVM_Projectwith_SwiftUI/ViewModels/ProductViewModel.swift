@@ -18,14 +18,12 @@ class ProductViewModel: ObservableObject {
 	@Published var products : [Product]
 	@Published var showLoader: Bool = true
 	@Published var errorMessage: String?
-	
-	init(products: [Product] = [Product]()) {
-		self.products = products
-		self.favouriteManager = self
-	}
-	
 	weak var favouriteManager: FavouriteManager?
-	
+    init(products: [Product] = [Product]()) {
+        self.products = products
+        self.favouriteManager = self
+    }
+    
 	// MARK: - fetchProducts
 	func fetchProducts() {
 		if Reachability.isConnectedToNetwork() {
