@@ -10,6 +10,8 @@ import SDWebImageSwiftUI
 
 struct ProductItemView: View {
 	
+    // variables
+    @State private var showingAlert = false
 	@ObservedObject var productItemViewModel: ProductItemViewModel
 	@State private var isAnimated: Bool = false
 	
@@ -71,14 +73,13 @@ extension ProductItemView {
                    .foregroundColor(.white)
            }
            .indicator(.activity) // Activity Indicator
-           .transition(.fade(duration: 0.5)) // Fade Transition with duration
+           .transition(.fade(duration: 0.5))
            .scaledToFit()
            .frame(width: 100,height: 150)
            .clipped()
 		
 //        WebImage(url: productItemViewModel.product.imageUrl)
 //			.resizable()
-//
 //			.scaledToFit()
 //			.frame(width: 100,height: 150)
 //			.clipped()
@@ -96,12 +97,16 @@ extension ProductItemView {
 	
 	private var addToCartButton : some View {
 		Button {
+            showingAlert = true
 		} label: {
 			HStack(spacing: 0) {
 				Image(systemName: "cart")
 				Text("Add to cart")
 			}
 		}
+        .alert(isPresented: $showingAlert) {
+                   Alert(title: Text("Add to cart"), dismissButton: .default(Text("OK")))
+               }
 	}
 }
 

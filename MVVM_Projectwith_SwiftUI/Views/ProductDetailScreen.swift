@@ -70,7 +70,7 @@ extension ProductDetailScreen {
                Rectangle().foregroundColor(.white)
            }
            .indicator(.activity) // Activity Indicator
-           .transition(.fade(duration: 0.5)) // Fade Transition with duration
+           .transition(.fade(duration: 0.5)) 
            .scaledToFit()
            .frame(height: 300)
            .frame(maxWidth: .infinity)
